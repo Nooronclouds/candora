@@ -32,9 +32,10 @@ from ingestion.chunker import chunk_document
 from ingestion.indexer import VectorIndexer
 from agent.graph import build_graph
 from evaluation.logger import log_triplet
-from evaluation.ragas_eval import run_evaluation
 from evaluation.test_questions import TEST_QUESTIONS
 from config import TRIPLET_LOG_PATH, LAST_EVAL_RESULTS_PATH
+# NOTE: `ragas` is heavy (datasets/langchain) — imported lazily inside /evaluate
+# so the app boots lean on memory-limited free hosting tiers.
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -244,6 +245,7 @@ async def evaluate_rag():
     """Run RAGAS evaluation on the log triplets and cache the results."""
     logger.info("Starting RAGAS evaluation...")
     try:
+        from evaluation.ragas_eval import run_evaluation  # lazy: heavy import
         eval_results = run_evaluation()
         with open(LAST_EVAL_RESULTS_PATH, "w", encoding="utf-8") as f:
             json.dump(eval_results, f, default=str, indent=2)

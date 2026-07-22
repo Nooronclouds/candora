@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+chroma_db/
+logs/
+.git/
+.env
+frontend/node_modules/
+frontend/dist/
+.claude/
+app.py

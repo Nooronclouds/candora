@@ -1,0 +1,100 @@
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--color-prussian);
+  color: var(--color-paper);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-5) var(--space-4);
+  gap: var(--space-5);
+}
+
+.sidebar-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  padding-top: var(--space-2);
+}
+
+.sidebar-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--text-xl);
+  letter-spacing: 0.03em;
+}
+
+.sidebar-tagline {
+  font-size: var(--text-xs);
+  color: var(--color-butter);
+  font-style: italic;
+}
+
+.sidebar-mascot {
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  color: rgba(247, 245, 236, 0.75);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out-expo), color var(--duration-fast);
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-paper);
+}
+
+.sidebar-link-active {
+  background: var(--color-topaze);
+  color: var(--color-paper);
+  font-weight: 600;
+}
+
+.sidebar-section {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: var(--space-4);
+}
+
+.sidebar-section-label {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-butter);
+  font-weight: 600;
+}
+
+.sidebar-select {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--color-paper);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 0.6rem;
+  font-size: var(--text-sm);
+}
+
+.sidebar-select option {
+  color: var(--color-cassis);
+}

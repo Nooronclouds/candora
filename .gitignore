@@ -1,0 +1,34 @@
+# --- Secrets ---
+.env
+.env.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+
+# --- Data / runtime artifacts ---
+chroma_db/
+logs/
+build/
+
+# --- Node / frontend ---
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+dist-ssr/
+*.local
+
+# --- Editors / OS ---
+.idea/
+.vscode/
+.DS_Store
+*.swp
+*.swo
+
+# --- Local Claude Code config ---
+.claude/settings.local.json

@@ -1,0 +1,16 @@
+{
+  "baseline": {
+    "scores": {
+      "faithfulness": 0.4383,
+      "context_precision": 0.5
+    },
+    "count": 10
+  },
+  "self_correcting": {
+    "scores": {
+      "faithfulness": 0.4416,
+      "context_precision": 0.5667
+    },
+    "count": 10
+  }
+}

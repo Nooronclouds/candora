@@ -33,7 +33,7 @@ COPY test_data/ ./test_data/
 # Built frontend from stage 1
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
-# HF Spaces routes traffic to port 7860
+# Default port; hosts that inject $PORT (Render, Koyeb, Fly.io, …) override it.
 ENV PORT=7860
 EXPOSE 7860
 

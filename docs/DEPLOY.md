@@ -18,23 +18,23 @@ git push -u origin main
 
 ---
 
-## 2. Hugging Face Spaces (live demo — free, no card)
+## 2. Render (live demo — free, no card, deploys from GitHub)
 
-1. Go to **huggingface.co/new-space**.
-2. **Space name:** `candora` · **SDK:** **Docker** · **Hardware:** CPU basic (free).
-3. Create the Space. It gives you a git URL like `https://huggingface.co/spaces/<you>/candora`.
-4. Add your Groq key as a **secret** (Space → Settings → Variables and secrets → New secret):
-   - Name: `GROQ_API_KEY` · Value: *your key*
-5. Push the code to the Space:
+> Hugging Face Docker Spaces now require a paid plan, so we use Render's free web-service tier. It builds our `Dockerfile` straight from the GitHub repo.
 
-```bash
-git remote add space https://huggingface.co/spaces/<you>/candora
-git push space main
-```
+1. Go to **render.com** → sign up (GitHub login is easiest) → **New +** → **Web Service**.
+2. Connect the **`candora`** GitHub repo.
+3. Render auto-detects the `Dockerfile`. Settings:
+   - **Environment:** Docker
+   - **Instance type:** **Free**
+   - **Region:** closest to you
+4. Add an environment variable:
+   - Key: `GROQ_API_KEY` · Value: *your Groq key*
+5. **Create Web Service.** First build takes ~5–10 min. The app binds Render's `$PORT` automatically and auto-seeds the demo documents on startup, so it's usable immediately.
 
-The Space builds the `Dockerfile` (React build → served by FastAPI on port 7860). First build takes ~5–10 min. When it's live, the app auto-seeds the demo documents on startup, so it's usable immediately.
+> **Free-tier note:** the service sleeps after ~15 min idle and cold-starts (~1 min) on the next visit. **Wake it a minute before demoing.**
 
-> **Auth for the push:** when prompted, use your HF username and an **access token** (huggingface.co/settings/tokens, role `write`) as the password.
+Other Docker hosts (Koyeb, Fly.io, a VM) work identically — point them at the `Dockerfile` and set `GROQ_API_KEY`.
 
 ---
 
@@ -42,8 +42,7 @@ The Space builds the `Dockerfile` (React build → served by FastAPI on port 786
 
 ```bash
 git add -A && git commit -m "..."
-git push origin main    # GitHub
-git push space main     # redeploy on HF Spaces
+git push origin main    # GitHub — Render auto-redeploys on push
 ```
 
 ---

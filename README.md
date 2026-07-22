@@ -1,13 +1,3 @@
----
-title: Candora — Self-Correcting Trustworthy RAG
-emoji: 🦆
-colorFrom: indigo
-colorTo: yellow
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # Candora — Self-Correcting Trustworthy RAG
 
 > **Trust is the metric.** A retrieval-augmented generation system that refuses to guess — it verifies whether it has enough context, retries when it doesn't, and halts loudly when documents contradict each other.
@@ -166,7 +156,7 @@ uvicorn api.main:app --port 8000  # FastAPI now serves the UI at /
 
 ## Deployment
 
-Deployed as a single Docker container on Hugging Face Spaces. The `Dockerfile` builds the React app, installs the Python backend, and serves both on port 7860. Set `GROQ_API_KEY` as a Space secret.
+Ships as a **single Docker container** — the `Dockerfile` builds the React app and serves it through FastAPI on one port, deployable to any Docker host (Render, Koyeb, Fly.io, a VM, etc.). The app binds `$PORT` and auto-seeds the demo dataset on first boot; set `GROQ_API_KEY` in the host's environment. See [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ---
 

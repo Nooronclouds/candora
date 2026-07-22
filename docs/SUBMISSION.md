@@ -27,7 +27,7 @@ The whole system runs on **free infrastructure** — Groq (Llama 3.1) for reason
 | Item | Where |
 |---|---|
 | GitHub repository | *(add link after push)* |
-| Working application / live link | *(add Hugging Face Space link after deploy)* |
+| Working application / live link | *(add Render link after deploy — see docs/DEPLOY.md)* |
 | Project description | This file + [README.md](../README.md) |
 | Technical documentation | [README.md](../README.md) (architecture, stack, decisions) |
 | Evaluation results (hallucination eval) | [docs/EVALUATION.md](EVALUATION.md) |
